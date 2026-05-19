@@ -65,7 +65,7 @@ deck.initialize({
   transition: 'fade',
   backgroundTransition: 'fade',
   center: false,
-  hash: true,
+  hash: false,       // on debugging, set to false to avoid polluting the URL
   history: false,
   slideNumber: 'c/t'
 });

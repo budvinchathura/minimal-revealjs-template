@@ -60,10 +60,10 @@ body {
 
 
 /* debug */
-.reveal .slides {
+/* .reveal .slides {
   border: 1px dashed #333; 
   box-sizing: border-box; 
-}
+} */
 
 .slide-title {
   background: var(--slide-title-bg-color);
