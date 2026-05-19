@@ -1,0 +1,18 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="520" fill="#ffffff"/>
+  <rect x="80" y="120" width="380" height="280" rx="18" fill="#f3f4f6" stroke="#111827" stroke-width="2"/>
+  <rect x="740" y="120" width="380" height="280" rx="18" fill="#f3f4f6" stroke="#111827" stroke-width="2"/>
+  <rect x="490" y="200" width="220" height="120" rx="18" fill="#e8f1fb" stroke="#0f4c81" stroke-width="2"/>
+  <text x="270" y="170" font-family="IBM Plex Sans, Arial" font-size="26" text-anchor="middle" fill="#111827">Collector</text>
+  <text x="270" y="210" font-family="IBM Plex Sans, Arial" font-size="20" text-anchor="middle" fill="#4b5563">Sensors</text>
+  <text x="270" y="240" font-family="IBM Plex Sans, Arial" font-size="20" text-anchor="middle" fill="#4b5563">Normalization</text>
+  <text x="930" y="170" font-family="IBM Plex Sans, Arial" font-size="26" text-anchor="middle" fill="#111827">Inference</text>
+  <text x="930" y="210" font-family="IBM Plex Sans, Arial" font-size="20" text-anchor="middle" fill="#4b5563">Runtime</text>
+  <text x="930" y="240" font-family="IBM Plex Sans, Arial" font-size="20" text-anchor="middle" fill="#4b5563">Monitoring</text>
+  <text x="600" y="260" font-family="IBM Plex Sans, Arial" font-size="24" text-anchor="middle" fill="#0f4c81">Model Store</text>
+  <path d="M460 260 H490" stroke="#111827" stroke-width="3"/>
+  <path d="M710 260 H740" stroke="#111827" stroke-width="3"/>
+  <path d="M484 250 L496 260 L484 270" stroke="#111827" stroke-width="3" fill="none"/>
+  <path d="M724 250 L736 260 L724 270" stroke="#111827" stroke-width="3" fill="none"/>
+  <text x="600" y="470" font-family="IBM Plex Sans, Arial" font-size="20" text-anchor="middle" fill="#4b5563">Shared artifacts with versioned metadata.</text>
+</svg>

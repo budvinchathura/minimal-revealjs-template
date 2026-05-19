@@ -1,0 +1,24 @@
+<section>
+  <div class="slide-title">
+    <h2>Model formulation</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 40px; align-items: flex-start;">
+      <div style="flex: 1;">
+        <h3>Objective</h3>
+        <p>We optimize a compact model with a regularized loss:</p>
+        $$\mathcal{L}(\theta) = \sum_{i=1}^{N} \ell(f_\theta(x_i), y_i) + \lambda \lVert \theta \rVert_1$$
+        <p><em>Hyperparameters tuned on a small validation split <cite-ref key="liu2022"></cite-ref>.</em></p>
+      </div>
+      <div style="flex: 1;">
+        <h3>Assumptions</h3>
+        <ul>
+          <li>Data drift is bounded in time</li>
+          <li>Features are normalized per batch</li>
+          <li>Loss is smooth around the optimum</li>
+        </ul>
+        <p><em>Swap the loss or add constraints here.</em></p>
+      </div>
+    </div>
+  </div>
+</section>

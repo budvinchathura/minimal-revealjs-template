@@ -1,0 +1,32 @@
+<section>
+  <div class="slide-title">
+    <h2>Implementation snapshot</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 40px; align-items: flex-start;">
+      <div style="flex: 1;">
+        <pre><code class="language-js code-block" data-trim>
+export function buildFeatures(rows) {
+  return rows.map(row => ({
+    id: row.id,
+    norm: (row.value - row.mean) / row.std,
+    score: Math.log1p(row.value) * row.weight
+  }));
+}
+        </code></pre>
+        <p><em>Small, readable helpers are easier to audit.</em></p>
+      </div>
+      <div style="flex: 1;">
+        <h3>Design choices</h3>
+        <ul>
+          <li>Explicit normalization</li>
+          <li>No hidden global state</li>
+          <li>Pure data transforms</li>
+        </ul>
+        <aside class="notes">
+          Mention how this mirrors the lab workflow and supports reproducibility.
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>

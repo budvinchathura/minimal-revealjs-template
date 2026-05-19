@@ -1,0 +1,18 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="360" fill="#ffffff"/>
+  <rect x="60" y="90" width="240" height="140" rx="16" fill="#e8f1fb" stroke="#0f4c81" stroke-width="2"/>
+  <rect x="360" y="90" width="240" height="140" rx="16" fill="#f3f4f6" stroke="#111827" stroke-width="2"/>
+  <rect x="660" y="90" width="240" height="140" rx="16" fill="#f3f4f6" stroke="#111827" stroke-width="2"/>
+  <rect x="960" y="90" width="180" height="140" rx="16" fill="#ecfdf3" stroke="#166534" stroke-width="2"/>
+  <text x="180" y="165" font-family="IBM Plex Sans, Arial" font-size="26" text-anchor="middle" fill="#0f4c81">Ingest</text>
+  <text x="480" y="165" font-family="IBM Plex Sans, Arial" font-size="26" text-anchor="middle" fill="#111827">Compress</text>
+  <text x="780" y="165" font-family="IBM Plex Sans, Arial" font-size="26" text-anchor="middle" fill="#111827">Model</text>
+  <text x="1050" y="165" font-family="IBM Plex Sans, Arial" font-size="26" text-anchor="middle" fill="#166534">Report</text>
+  <path d="M300 160 H345" stroke="#111827" stroke-width="3"/>
+  <path d="M600 160 H645" stroke="#111827" stroke-width="3"/>
+  <path d="M900 160 H945" stroke="#111827" stroke-width="3"/>
+  <path d="M338 150 L350 160 L338 170" stroke="#111827" stroke-width="3" fill="none"/>
+  <path d="M638 150 L650 160 L638 170" stroke="#111827" stroke-width="3" fill="none"/>
+  <path d="M938 150 L950 160 L938 170" stroke="#111827" stroke-width="3" fill="none"/>
+  <text x="60" y="320" font-family="IBM Plex Sans, Arial" font-size="20" fill="#4b5563">Each stage is swappable and independently testable.</text>
+</svg>
