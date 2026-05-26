@@ -1,5 +1,5 @@
 :root {
-  --slide-title-bg-color: #acdaff;
+  --slide-title-bg-color: #002a4d;
   --slide-bg-color: #fbfbf8;
   --slide-panel-color: #ffffff;
   --slide-text-color: #111827;
@@ -65,10 +65,14 @@ body {
   box-sizing: border-box; 
 } */
 
-.slide-title {
+.reveal .slides section .slide-title {
   background: var(--slide-title-bg-color);
   padding-bottom: 2rem;
+  padding-top: 1rem;
   padding-left: 40px;
+  h1, h2, h3, h4, h5, h6, p, li {
+    color: white;
+  }
 }
 
 .slide-content {

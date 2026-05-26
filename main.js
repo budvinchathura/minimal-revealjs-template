@@ -1,9 +1,12 @@
 import Reveal from 'reveal.js';
 import Notes from 'reveal.js/plugin/notes';
 import RevealHighlight from 'reveal.js/plugin/highlight';
-import renderMathInElement from 'katex/dist/contrib/auto-render.mjs';
+import renderMathInElement from 'katex/contrib/auto-render';
 
 import 'reveal.js/reveal.css';
+
+// It’s a local copy of Reveal’s simple theme with the Google Fonts @import 
+// lines removed, so it doesn’t fetch fonts from the network
 import './assets/simple.css';
 // import 'reveal.js/plugin/highlight/monokai.css';
 import './assets/default.min.css';
