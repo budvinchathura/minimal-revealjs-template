@@ -69,16 +69,16 @@ body {
   background: var(--slide-title-bg-color);
   padding-bottom: 2rem;
   padding-top: 1rem;
-  padding-left: 40px;
+  padding-left: 2%;
   h1, h2, h3, h4, h5, h6, p, li {
     color: white;
   }
 }
 
 .slide-content {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 40px;;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 2%;
   flex: 1;
 
 }
@@ -89,7 +89,7 @@ body {
 }
 
 .reveal .slides .code-block {
-  padding: 20px;
+  /* padding: 20px; */
   white-space: pre-wrap; 
   word-wrap: break-word;
 }
