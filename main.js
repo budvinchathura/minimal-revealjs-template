@@ -76,6 +76,8 @@ slides.innerHTML = [
   backup
 ].join('\n');
 
+applyChapterMarkers(slides);
+
 const deck = new Reveal({
   plugins: [Notes, RevealHighlight]
 });
@@ -100,6 +102,7 @@ const citations = new CitationManager({
 });
 
 deck.on('ready', async () => {
+  buildTableOfContents(deck);
   await citations.init(deck);
   // Wait for full MathJax initialisation (module load + async startup).
   await mathjaxReady;
@@ -114,3 +117,103 @@ deck.on('slidechanged', async (event) => {
   await mathjaxReady;
   await window.MathJax.typesetPromise([event.currentSlide]);
 });
+
+function applyChapterMarkers(slidesRoot) {
+  const markers = slidesRoot.querySelectorAll('x-chapter, x-subchapter');
+  markers.forEach((marker) => {
+    const nextSection = findNextSlideSection(marker);
+    if (!nextSection) {
+      marker.remove();
+      return;
+    }
+
+    if (marker.tagName.toLowerCase() === 'x-chapter') {
+      const title = marker.textContent?.trim();
+      if (title) {
+        nextSection.setAttribute('data-chapter', title);
+      }
+    }
+
+    if (marker.tagName.toLowerCase() === 'x-subchapter') {
+      const title = marker.textContent?.trim();
+      if (title) {
+        nextSection.setAttribute('data-subchapter', title);
+      }
+    }
+
+    marker.remove();
+  });
+}
+
+function findNextSlideSection(startNode) {
+  let node = startNode.nextElementSibling;
+  while (node) {
+    if (node.tagName && node.tagName.toLowerCase() === 'section') {
+      return node;
+    }
+    node = node.nextElementSibling;
+  }
+  return null;
+}
+
+function buildTableOfContents(deck) {
+  const tocContainer = document.getElementById('toc-placeholder');
+  if (!tocContainer) {
+    return;
+  }
+
+  const list = document.createElement('ul');
+  list.className = 'toc-list';
+
+  let currentChapterItem = null;
+  const allSlides = deck.getSlides();
+  allSlides.forEach((slide) => {
+
+    const chapter = slide.getAttribute('data-chapter');
+    const subchapter = slide.getAttribute('data-subchapter');
+    if (!chapter && !subchapter) {
+      return;
+    }
+
+    const { h, v } = deck.getIndices(slide);
+    if (chapter) {
+      const item = document.createElement('li');
+      item.appendChild(createTocLink(chapter, h, v));
+      list.appendChild(item);
+      currentChapterItem = item;
+    }
+
+    if (subchapter) {
+      const subItem = document.createElement('li');
+      subItem.className = 'toc-subchapter';
+      subItem.appendChild(createTocLink(subchapter, h, v));
+
+      if (!currentChapterItem) {
+        list.appendChild(subItem);
+        return;
+      }
+
+      let subList = currentChapterItem.querySelector('ul');
+      if (!subList) {
+        subList = document.createElement('ul');
+        currentChapterItem.appendChild(subList);
+      }
+      subList.appendChild(subItem);
+    }
+  });
+
+  if (!list.childElementCount) {
+    tocContainer.textContent = 'No chapters found.';
+    return;
+  }
+
+  tocContainer.appendChild(list);
+}
+
+function createTocLink(label, h, v) {
+  const link = document.createElement('a');
+  const target = v ? `#/${h}/${v}` : `#/${h}`;
+  link.href = target;
+  link.textContent = label;
+  return link;
+}

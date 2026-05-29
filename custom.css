@@ -83,6 +83,10 @@ body {
 
 }
 
+#toc-placeholder {
+  font-weight: bold;
+}
+
 .reveal .slides ul {
   display: grid;
   gap: 1rem; /* Space between rows */
