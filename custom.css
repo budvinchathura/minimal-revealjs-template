@@ -141,3 +141,26 @@ body {
 .reveal .slide-table tbody tr:hover {
   background: rgba(0,0,0,0.04);
 }
+
+.reveal .toc-button {
+  position: fixed;
+  left: 1rem;
+  bottom: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 31;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.reveal .toc-button img {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+}
+
+.reveal .toc-button:hover {
+  opacity: 0.85;
+}

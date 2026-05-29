@@ -91,6 +91,7 @@ const citations = new CitationManager({
 
 deck.on('ready', async () => {
   buildTableOfContents(deck);
+  addTocButton(deck);
   await citations.init(deck);
   // Wait for full MathJax initialisation (module load + async startup).
   await mathjaxReady;
@@ -105,6 +106,39 @@ deck.on('slidechanged', async (event) => {
   await mathjaxReady;
   await window.MathJax.typesetPromise([event.currentSlide]);
 });
+
+function addTocButton(deck) {
+  const revealRoot = deck.getRevealElement();
+  if (!revealRoot || revealRoot.querySelector('.toc-button')) {
+    return;
+  }
+
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'toc-button';
+  const icon = document.createElement('img');
+  icon.src = './assets/toc-logo.svg';
+  icon.alt = '';
+  icon.setAttribute('aria-hidden', 'true');
+  button.appendChild(icon);
+  button.setAttribute('aria-label', 'Go to table of contents');
+
+  button.addEventListener('click', () => {
+    const tocContainer = document.getElementById('toc-placeholder');
+    if (tocContainer) {
+      const tocSlide = tocContainer.closest('section');
+      if (tocSlide) {
+        const { h, v } = deck.getIndices(tocSlide);
+        deck.slide(h, v);
+        return;
+      }
+    }
+
+    deck.slide(0, 0);
+  });
+
+  revealRoot.appendChild(button);
+}
 
 function applyChapterMarkers(slidesRoot) {
   const markers = slidesRoot.querySelectorAll('x-chapter, x-subchapter');
