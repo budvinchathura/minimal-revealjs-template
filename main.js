@@ -24,15 +24,9 @@ import cover from './slides/00-cover.html?raw';
 import agenda from './slides/01-agenda.html?raw';
 import problem from './slides/02-problem.html?raw';
 import method from './slides/03-method.html?raw';
-import model from './slides/04-model.html?raw';
 import experiment from './slides/05-experiment.html?raw';
 import results from './slides/06-results.html?raw';
-import ablation from './slides/07-ablation.html?raw';
-import system from './slides/08-system.html?raw';
-import codeSlide from './slides/09-code.html?raw';
-import gallery from './slides/10-figures.html?raw';
-import references from './slides/11-references.html?raw';
-import backup from './slides/12-backup.html?raw';
+import references from './slides/07-references.html?raw';
 
 window.MathJax = {
   tex: {
@@ -65,15 +59,9 @@ slides.innerHTML = [
   agenda,
   problem,
   method,
-  model,
   experiment,
   results,
-  ablation,
-  system,
-  codeSlide,
-  gallery,
-  references,
-  backup
+  references
 ].join('\n');
 
 applyChapterMarkers(slides);

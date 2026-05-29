@@ -46,3 +46,67 @@
     </div>
   </div>
 </section>
+
+<section>
+  <div class="slide-title">
+    <h2>Instrumentation</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+      <div>
+        <h3>Tracking</h3>
+        <ul>
+          <li>Experiment metadata captured per run</li>
+          <li>Model weights and configs versioned</li>
+          <li>Artifacts stored with checksums</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Reproducibility</h3>
+        <ul>
+          <li>Containerized environment</li>
+          <li>Seed control across pipeline stages</li>
+          <li>One-command rerun scripts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Metrics</h2>
+  </div>
+  <div class="slide-content">
+    <ul>
+      <li>Accuracy, F1, and calibration error</li>
+      <li>Latency at p50, p90, p99</li>
+      <li>Memory and power footprint</li>
+    </ul>
+    <p><em>We report both aggregate and per-domain performance.</em></p>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Baselines</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 32px;">
+      <div style="flex: 1;">
+        <h3>Classical</h3>
+        <ul>
+          <li>Logistic regression + hand-crafted features</li>
+          <li>Gradient boosted trees</li>
+        </ul>
+      </div>
+      <div style="flex: 1;">
+        <h3>Neural</h3>
+        <ul>
+          <li>Compact MLP with batch norm</li>
+          <li>Lightweight transformer encoder</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

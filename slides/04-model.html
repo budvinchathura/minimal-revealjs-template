@@ -1,4 +1,5 @@
-<x-subchapter>Model formulation</x-subchapter>
+<x-chapter>Model</x-chapter>
+<x-subchapter>Formulation</x-subchapter>
 <section>
   <div class="slide-title">
     <h2>Model formulation</h2>
@@ -19,6 +20,73 @@
           <li>Loss is smooth around the optimum</li>
         </ul>
         <p><em>Swap the loss or add constraints here.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Feature design</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+      <div>
+        <h3>Signals</h3>
+        <ul>
+          <li>Normalized intensity features</li>
+          <li>Temporal aggregates</li>
+          <li>Contextual priors</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Selection</h3>
+        <ul>
+          <li>Mutual information screening</li>
+          <li>Greedy feature pruning</li>
+          <li>Domain review of top features</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<x-subchapter>Training</x-subchapter>
+<section>
+  <div class="slide-title">
+    <h2>Optimization setup</h2>
+  </div>
+  <div class="slide-content">
+    <ul>
+      <li>Optimizer: AdamW with cosine schedule</li>
+      <li>Batch size: 128 (gradient accumulation x2)</li>
+      <li>Early stopping with patience 5</li>
+    </ul>
+    <p><em>Training runs complete in under 45 minutes on a single GPU.</em></p>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Regularization and stability</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 32px;">
+      <div style="flex: 1;">
+        <h3>Regularization</h3>
+        <ul>
+          <li>$L_1$ sparsity for interpretability</li>
+          <li>Dropout at 0.2 for robustness</li>
+          <li>Weight decay at 1e-4</li>
+        </ul>
+      </div>
+      <div style="flex: 1;">
+        <h3>Stability checks</h3>
+        <ul>
+          <li>Seed sweep across 5 runs</li>
+          <li>Variance tracked per metric</li>
+          <li>Confidence intervals reported</li>
+        </ul>
       </div>
     </div>
   </div>

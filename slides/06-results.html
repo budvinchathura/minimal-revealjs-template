@@ -1,12 +1,13 @@
 <x-chapter>Results</x-chapter>
+<x-subchapter>Main results</x-subchapter>
 <section>
   <div class="slide-title">
-    <h2>Results</h2>
+    <h2>Headline metrics</h2>
   </div>
   <div class="slide-content">
     <div style="display: flex; gap: 30px;">
       <div style="flex: 1;">
-        <h3>Headline metrics</h3>
+        <h3>Summary</h3>
         <ul>
           <li><strong>92.4%</strong> Top-1 accuracy</li>
           <li><strong>14 ms</strong> Median latency</li>
@@ -26,3 +27,163 @@
     </div>
   </div>
 </section>
+
+<section>
+  <div class="slide-title">
+    <h2>Generalization</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+      <div>
+        <h3>Cross-domain</h3>
+        <ul>
+          <li>Stable accuracy across three domains</li>
+          <li>Low variance across random seeds</li>
+          <li>Calibration drift under 2 percent</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Robustness</h3>
+        <ul>
+          <li>Performance drop under 4 percent with noise</li>
+          <li>Graceful degradation at low signal</li>
+          <li>Consistent confidence intervals</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<x-subchapter>Error analysis</x-subchapter>
+<section>
+  <div class="slide-title">
+    <h2>Failure modes</h2>
+  </div>
+  <div class="slide-content">
+    <ul>
+      <li>Confusion between rare classes</li>
+      <li>Misclassification under extreme drift</li>
+      <li>Latency spikes on atypical inputs</li>
+    </ul>
+    <p><em>We prioritize fixes that reduce rare-class errors.</em></p>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Qualitative review</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 24px;">
+      <div style="flex: 1;">
+        <h3>Success cases</h3>
+        <ul>
+          <li>Clear separation for high-signal samples</li>
+          <li>Stable confidence under mild shifts</li>
+        </ul>
+      </div>
+      <div style="flex: 1;">
+        <h3>Challenging cases</h3>
+        <ul>
+          <li>Overlapping feature distributions</li>
+          <li>Ambiguous labels from legacy data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<x-subchapter>Ablations</x-subchapter>
+<section>
+  <div class="slide-title">
+    <h2>Feature ablation study</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 40px; align-items: flex-start;">
+      <div style="flex: 1;">
+        <table class="slide-table">
+          <thead>
+            <tr>
+              <th>Variant</th>
+              <th>Accuracy</th>
+              <th>Latency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Full model</td>
+              <td>92.4%</td>
+              <td>14 ms</td>
+            </tr>
+            <tr>
+              <td>No normalization</td>
+              <td>87.1%</td>
+              <td>13 ms</td>
+            </tr>
+            <tr>
+              <td>Reduced features</td>
+              <td>90.5%</td>
+              <td>9 ms</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="flex: 1;">
+        <h3>Takeaways</h3>
+        <ul>
+          <li>Normalization drives most of the lift</li>
+          <li>Smaller feature set improves speed with minimal loss</li>
+          <li>Latency is mostly bound by I/O</li>
+        </ul>
+        <p><em>Use this slide to justify design choices.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Sensitivity checks</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 24px; align-items: center;">
+      <div style="flex: 1;">
+        <img src="./assets/figure-sensitivity.svg" alt="Sensitivity chart" style="width: 100%;" />
+        <p><em>Stable performance under perturbations.</em></p>
+      </div>
+      <div style="flex: 1;">
+        <h3>Observations</h3>
+        <ul>
+          <li>Performance dip under severe noise</li>
+          <li>Normalization mitigates most drift</li>
+          <li>Feature pruning retains robustness</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<x-subchapter>Figures</x-subchapter>
+<section>
+  <div class="slide-title">
+    <h2>Figure gallery</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 24px; align-items: center;">
+      <div style="flex: 1;">
+        <img src="./assets/figure-pipeline.svg" alt="Pipeline figure" style="width: 100%;" />
+        <p><em>Pipeline overview for the method.</em></p>
+      </div>
+      <div style="flex: 1;">
+        <img src="./assets/figure-architecture.svg" alt="Architecture figure" style="width: 100%;" />
+        <p><em>System components and data flow.</em></p>
+      </div>
+      <div style="flex: 1;">
+        <img src="./assets/figure-sensitivity.svg" alt="Sensitivity figure" style="width: 100%;" />
+        <p><em>Sensitivity curve under perturbations.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+

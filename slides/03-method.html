@@ -1,5 +1,5 @@
 <x-chapter>Method</x-chapter>
-<x-subchapter>Overview</x-subchapter>
+<x-subchapter>Approach</x-subchapter>
 <section>
   <div class="slide-title">
     <h2>Method overview</h2>
@@ -20,5 +20,210 @@
         <p><em>Modular stages with clear handoffs.</em></p>
       </div>
     </div>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Design principles</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+      <div>
+        <h3>Reliability</h3>
+        <ul>
+          <li>Deterministic preprocessing</li>
+          <li>Immutable datasets and configs</li>
+          <li>Versioned artifacts</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Interpretability</h3>
+        <ul>
+          <li>Explicit feature transforms</li>
+          <li>Clear performance attribution</li>
+          <li>Readable, auditable code</li>
+        </ul>
+      </div>
+    </div>
+    <p><em>These principles inform the model, training, and evaluation choices.</em></p>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Data and feature pipeline</h2>
+  </div>
+  <div class="slide-content">
+    <ol>
+      <li>Raw ingestion with schema validation</li>
+      <li>Normalization and outlier handling</li>
+      <li>Feature compression and selection</li>
+    </ol>
+    <p><em>Each stage emits a checksum for reproducibility.</em></p>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Quality controls</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 32px;">
+      <div style="flex: 1;">
+        <h3>Checks</h3>
+        <ul>
+          <li>Schema drift alerts</li>
+          <li>Feature distribution monitoring</li>
+          <li>Data leakage tests</li>
+        </ul>
+      </div>
+      <div style="flex: 1;">
+        <h3>Outputs</h3>
+        <ul>
+          <li>Automated QA report per run</li>
+          <li>Artifact bundle for reruns</li>
+          <li>Summary dashboards</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<x-subchapter>Model and implementation</x-subchapter>
+<section>
+  <div class="slide-title">
+    <h2>Model formulation</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 40px; align-items: flex-start;">
+      <div style="flex: 1;">
+        <h3>Objective</h3>
+        <p>We optimize a compact model with a regularized loss:</p>
+        $$\mathcal{L}(\theta) = \sum_{i=1}^{N} \ell(f_\theta(x_i), y_i) + \lambda \lVert \theta \rVert_1$$
+        <p><em>Hyperparameters tuned on a small validation split <cite-ref key="liu2022"></cite-ref>.</em></p>
+      </div>
+      <div style="flex: 1;">
+        <h3>Assumptions</h3>
+        <ul>
+          <li>Data drift is bounded in time</li>
+          <li>Features are normalized per batch</li>
+          <li>Loss is smooth around the optimum</li>
+        </ul>
+        <p><em>Swap the loss or add constraints here.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Training setup</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+      <div>
+        <h3>Optimization</h3>
+        <ul>
+          <li>Optimizer: AdamW with cosine schedule</li>
+          <li>Batch size: 128 (gradient accumulation x2)</li>
+          <li>Early stopping with patience 5</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Regularization</h3>
+        <ul>
+          <li>$L_1$ sparsity for interpretability</li>
+          <li>Dropout at 0.2 for robustness</li>
+          <li>Weight decay at 1e-4</li>
+        </ul>
+      </div>
+    </div>
+    <p><em>Training runs complete in under 45 minutes on a single GPU.</em></p>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Implementation snapshot</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 40px; align-items: flex-start;">
+      <div style="flex: 1;">
+        <pre><code class="language-js code-block" data-trim>
+export function buildFeatures(rows) {
+  return rows.map(row => ({
+    id: row.id,
+    norm: (row.value - row.mean) / row.std,
+    score: Math.log1p(row.value) * row.weight
+  }));
+}
+        </code></pre>
+        <p><em>Small, readable helpers are easier to audit.</em></p>
+      </div>
+      <div style="flex: 1;">
+        <h3>Design choices</h3>
+        <ul>
+          <li>Explicit normalization</li>
+          <li>No hidden global state</li>
+          <li>Pure data transforms</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Experiment Code</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+            <pre style="width: 40%;"><code class="language-js code-block" data-trim>
+export async function runExperiment(config) {
+  const data = await loadDataset(config.dataset);
+  const features = buildFeatures(data);
+  const model = await trainModel(features, config);
+  return evaluateModel(model, config.metrics);
+}
+            </code></pre>
+            <p><em>Single entry point for reproducible runs.</em></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>System architecture</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: flex; gap: 40px; align-items: flex-start;">
+      <div style="flex: 1;">
+        <img src="./assets/figure-architecture.svg" alt="System architecture diagram" style="width: 100%;" />
+        <p><em>Two services with a shared data layer.</em></p>
+      </div>
+      <div style="flex: 1;">
+        <h3>Operational flow</h3>
+        <ol>
+          <li>Collector writes to a versioned store</li>
+          <li>Trainer builds a new model snapshot</li>
+          <li>Evaluator publishes metrics and artifacts</li>
+          <li>Inference service loads the latest build</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Monitoring</h2>
+  </div>
+  <div class="slide-content">
+    <ul>
+      <li>Real-time latency and throughput dashboards</li>
+      <li>Data drift alarms tied to retraining triggers</li>
+      <li>Error budget tracking per deployment stage</li>
+    </ul>
   </div>
 </section>

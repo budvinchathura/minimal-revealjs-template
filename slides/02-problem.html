@@ -26,3 +26,53 @@
     </div>
   </div>
 </section>
+
+<section>
+  <div class="slide-title">
+    <h2>Constraints and signals</h2>
+  </div>
+  <div class="slide-content">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+      <div>
+        <h3>Data constraints</h3>
+        <ul>
+          <li>Small labeled set, high class imbalance</li>
+          <li>Annotations drift across collection rounds</li>
+          <li>Privacy limits sharing raw samples</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Operational signals</h3>
+        <ul>
+          <li>Latency budget under 20 ms</li>
+          <li>Memory cap under 1 GB</li>
+          <li>Weekly refresh cadence</li>
+        </ul>
+      </div>
+    </div>
+    <p><em>These constraints drive the design choices and evaluation metrics.</em></p>
+  </div>
+</section>
+
+<section>
+  <div class="slide-title">
+    <h2>Research contributions</h2>
+  </div>
+  <div class="slide-content">
+    <ol>
+      <li>Compact pipeline that preserves accuracy under strict budgets</li>
+      <li>Transparent feature engineering for auditability</li>
+      <li>Evaluation harness with reproducible baselines</li>
+    </ol>
+    <div style="display: flex; gap: 24px; margin-top: 24px;">
+      <div style="flex: 1;">
+        <h3>Hypothesis</h3>
+        <p>Lightweight models can match large baselines with targeted signals.</p>
+      </div>
+      <div style="flex: 1;">
+        <h3>Impact</h3>
+        <p>Lowered cost and faster iteration cycles for small teams.</p>
+      </div>
+    </div>
+  </div>
+</section>
