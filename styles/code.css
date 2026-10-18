@@ -1,0 +1,59 @@
+/*
+ * Code listings: highlight.js "a11y-dark" theme (WCAG-AA contrast) as dark
+ * panels on the light slides. The highlighting markup is generated at build
+ * time (build/highlight.js) and matches Reveal's highlight plugin, so Reveal's
+ * own line-number and step-highlight styles in reveal.css still apply.
+ */
+
+:root {
+  --r-code-font: 'JetBrains Mono', ui-monospace, monospace;
+  --code-font-size: 24px;
+  --code-max-height: 720px;
+  --code-bg: #2b2b2b; /* a11y-dark background */
+}
+
+.reveal pre {
+  border-radius: 10px;
+  background: var(--code-bg);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.18);
+}
+
+.reveal pre code.hljs {
+  max-height: var(--code-max-height);
+  padding: 0.8em 1em;
+  border-radius: inherit;
+  font-size: var(--code-font-size);
+  line-height: 1.45;
+  /* Show code literally: no "=>" -> "⇒" style ligatures. */
+  font-variant-ligatures: none;
+  /* Wrap long lines instead of scrolling sideways. */
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+/* Line numbers (data-line-numbers); these rules come from the runtime CSS of
+   the highlight plugin's line-number extension. They are deliberately less
+   specific than reveal.css's .reveal .hljs-ln-numbers spacing. */
+.hljs-ln {
+  border-collapse: collapse;
+}
+
+.hljs-ln td {
+  padding: 0;
+}
+
+.hljs-ln-n::before {
+  content: attr(data-line-number);
+}
+
+.reveal .hljs-ln-numbers {
+  user-select: none;
+}
+
+/* Inline code in running text. */
+.reveal :not(pre) > code {
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  background: rgb(17 24 39 / 0.07);
+  font-size: 0.85em;
+}

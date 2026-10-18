@@ -3,6 +3,11 @@
   --slide-bg-color: #fbfbf8;
   --slide-panel-color: #ffffff;
   --slide-text-color: #111827;
+
+  /* Reveal theme variables (defined in theme.css) */
+  --r-main-color: var(--slide-text-color);
+  --r-heading-color: var(--slide-text-color);
+  --r-heading-text-transform: none;
 }
 
 html,
@@ -10,66 +15,25 @@ body {
   background: var(--slide-bg-color);
 }
 
-.reveal {
-  color: var(--slide-text-color);
-}
-
-
 .reveal section {
-  text-align: left;   /* Align text to the left */
-  color: var(--slide-text-color);
+  text-align: left;
 }
 
 .reveal .slides section {
   background: var(--slide-panel-color);
-  /* border: 1px solid rgba(17, 24, 39, 0.08);
-  border-radius: 18px;
-  box-shadow: 0 16px 42px rgba(17, 24, 39, 0.08);
-  display: flex;
-  flex-direction: column;
-  height: 100%; */
 }
-
-.reveal .slides section p,
-.reveal .slides section li,
-.reveal .slides section h1,
-.reveal .slides section h2,
-.reveal .slides section h3,
-.reveal .slides section h4,
-.reveal .slides section h5,
-.reveal .slides section h6,
-.reveal .slides section td,
-.reveal .slides section th,
-.reveal .slides section blockquote,
-.reveal .slides section figcaption {
-  color: var(--slide-text-color);
-}
-
-.reveal h1,
-.reveal h2,
-.reveal h3 {
-  text-transform: none;
-}
-
-
 
 .reveal table th,
 .reveal table td {
   padding: 0.4em 0.6em;
 }
 
-
-/* debug */
-/* .reveal .slides {
-  border: 1px dashed #333; 
-  box-sizing: border-box; 
-} */
-
 .reveal .slides section .slide-title {
   background: var(--slide-title-bg-color);
   padding-bottom: 2rem;
   padding-top: 1rem;
   padding-left: 2%;
+
   h1, h2, h3, h4, h5, h6, p, li {
     color: white;
   }
@@ -79,8 +43,6 @@ body {
   padding-left: 2%;
   padding-right: 2%;
   padding-top: 2%;
-  flex: 1;
-
 }
 
 #toc-placeholder {
@@ -90,12 +52,6 @@ body {
 .reveal .slides ul {
   display: grid;
   gap: 1rem; /* Space between rows */
-}
-
-.reveal .slides .code-block {
-  /* padding: 20px; */
-  white-space: pre-wrap; 
-  word-wrap: break-word;
 }
 
 .csl-bib-body {

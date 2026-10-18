@@ -16,7 +16,7 @@
         <p><strong>Outcome:</strong> 3x faster iteration vs. baseline.</p>
       </div>
       <div style="flex: 1;">
-        <img src="./assets/figure-pipeline.svg" alt="Pipeline diagram" style="width: 100%;" />
+        <img src="./media/figure-pipeline.svg" alt="Pipeline diagram" style="width: 100%;" />
         <p><em>Modular stages with clear handoffs.</em></p>
       </div>
     </div>
@@ -150,7 +150,7 @@
   <div class="slide-content">
     <div style="display: flex; gap: 40px; align-items: flex-start;">
       <div style="flex: 1;">
-        <pre><code class="language-js code-block" data-trim>
+        <pre><code class="language-js" data-trim>
 export function buildFeatures(rows) {
   return rows.map(row => ({
     id: row.id,
@@ -179,7 +179,7 @@ export function buildFeatures(rows) {
   </div>
   <div class="slide-content">
     <div style="display: flex; flex-direction: column; align-items: center;">
-            <pre style="width: 40%;"><code class="language-js code-block" data-trim>
+            <pre style="width: 40%;"><code class="language-js" data-trim>
 export async function runExperiment(config) {
   const data = await loadDataset(config.dataset);
   const features = buildFeatures(data);
@@ -199,7 +199,7 @@ export async function runExperiment(config) {
   <div class="slide-content">
     <div style="display: flex; gap: 40px; align-items: flex-start;">
       <div style="flex: 1;">
-        <img src="./assets/figure-architecture.svg" alt="System architecture diagram" style="width: 100%;" />
+        <img src="./media/figure-architecture.svg" alt="System architecture diagram" style="width: 100%;" />
         <p><em>Two services with a shared data layer.</em></p>
       </div>
       <div style="flex: 1;">
