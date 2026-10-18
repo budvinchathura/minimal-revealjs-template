@@ -11,6 +11,8 @@ export default defineConfig({
       slidesDir: 'slides',
       bibFile: 'refs.bib',
       citationStyle: 'vancouver',
+      // Footer with the references cited on each slide: 'short', 'full' or 'none'.
+      slideCitations: 'short',
     }),
     // `vite build` emits a single index.html with all JS, CSS and fonts inlined.
     // Files in public/ (figures, videos, ...) are copied next to it as-is.

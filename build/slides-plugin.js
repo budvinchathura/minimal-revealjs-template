@@ -23,6 +23,8 @@ const RESOLVED_STYLES_ID = `\0${STYLES_ID}`;
  * @param {string} [userOptions.bibFile='refs.bib'] BibTeX file for citations.
  * @param {string} [userOptions.citationStyle='vancouver'] CSL template (apa, vancouver, harvard1).
  * @param {boolean} [userOptions.includeUncited=false] List uncited entries in the bibliography too.
+ * @param {'short' | 'full' | 'none'} [userOptions.slideCitations='short'] Footer listing the
+ *   references cited on each slide; override per slide with <section data-citations="...">.
  * @param {object} [userOptions.tex] Extra MathJax TeX options, e.g. { macros: { R: '\\mathbb{R}' } }.
  * @param {boolean} [userOptions.speech] Generate spoken descriptions of math for screen readers.
  *   Defaults to on for `vite build` and off in dev, where it would slow down every save.
@@ -47,6 +49,7 @@ export default function slides(userOptions = {}) {
         bibFile: normalizePath(path.resolve(config.root, userOptions.bibFile ?? 'refs.bib')),
         citationStyle: userOptions.citationStyle ?? 'vancouver',
         includeUncited: userOptions.includeUncited ?? false,
+        slideCitations: userOptions.slideCitations ?? 'short',
         tex: userOptions.tex ?? {},
         speech: userOptions.speech ?? isBuild,
         warn: (message) => logger.warn(`[slides] ${message}`, { timestamp: true }),

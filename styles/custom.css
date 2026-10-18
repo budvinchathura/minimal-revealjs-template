@@ -78,6 +78,34 @@ body {
   margin-left: 3.5em;
 }
 
+/* Footer listing the references cited on a slide (build/citations.js). */
+.reveal .slides section.has-slide-citations {
+  height: 100%;
+}
+
+.reveal .slide-citations {
+  position: absolute;
+  bottom: 2.5%;
+  left: 7%;   /* clear of the TOC button */
+  right: 12%; /* clear of the navigation controls */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em 1.5em;
+  padding-top: 0.4em;
+  border-top: 1px solid rgb(17 24 39 / 0.2);
+  color: rgb(17 24 39 / 0.75);
+  font-size: 0.55em;
+  line-height: 1.3;
+}
+
+.reveal .slide-citations-full {
+  flex-direction: column;
+}
+
+.reveal .slide-citation-number {
+  font-weight: bold;
+}
+
 .reveal .slide-table {
   border-collapse: collapse;
   width: 100%;

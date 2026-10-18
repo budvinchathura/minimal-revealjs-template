@@ -115,6 +115,21 @@ References are numbered in order of first citation. Add a references slide with:
 <div id="bibliography"></div>
 ```
 
+Every slide that cites something also gets a footer listing those references,
+so the audience can follow them without the references slide:
+
+```
+[2] Garcia et al., 2023    [3] Brown, 2021
+```
+
+Set the default with `slideCitations` in `vite.config.js` (`'short'`, `'full'`
+for the complete reference, or `'none'`), and override it per slide:
+
+```html
+<section data-citations="full"> … </section>   <!-- full reference text -->
+<section data-citations="none"> … </section>   <!-- no footer, e.g. the title slide -->
+```
+
 The citation style (`vancouver` by default; `apa` and `harvard1` are also
 available) and whether uncited entries are listed (`includeUncited`) are set in
 `vite.config.js`.

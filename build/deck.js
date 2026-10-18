@@ -19,7 +19,7 @@ export async function listSlideFiles(slidesDir) {
 }
 
 export async function buildDeck(options) {
-  const { slidesDir, bibFile, citationStyle, includeUncited, warn } = options;
+  const { slidesDir, bibFile, citationStyle, includeUncited, slideCitations, warn } = options;
 
   const files = await listSlideFiles(slidesDir);
   const sources = await Promise.all(files.map((file) => fs.readFile(file, 'utf8')));
@@ -34,7 +34,7 @@ export async function buildDeck(options) {
   // code is highlighted before citations so <cite-ref> inside code stays literal.
   buildTableOfContents(doc, warn);
   highlightCode(doc, warn);
-  renderCitations(doc, { bibtex, style: citationStyle, includeUncited, warn });
+  renderCitations(doc, { bibtex, style: citationStyle, includeUncited, slideCitations, warn });
   await renderMath(MathJax, doc, options);
 
   return { html: doc.body.innerHTML, files };
