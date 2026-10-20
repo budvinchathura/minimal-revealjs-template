@@ -42,12 +42,6 @@ ship:
 
 - **Math**: MathJax v4 runs in Node and turns TeX into SVG. The browser loads
   no MathJax and no math fonts.
-- **Screen-reader speech**: in `npm run build`, every equation also gets a spoken
-  description (MathJax's speech-rule engine, ClearSpeak) and Nemeth braille as
-  ARIA labels. This is skipped in dev because it costs ~0.1 s per equation on
-  every save; enable it there with `slides({ speech: true })` in
-  `vite.config.js`. MathJax's interactive explorer (keyboard navigation inside an
-  equation) is not included, as it needs the full MathJax runtime and a web worker.
 - **Citations and bibliography** are resolved from `refs.bib`.
 - **Code** is highlighted with highlight.js.
 - **Chapters / TOC** are generated from the chapter markers.
@@ -59,6 +53,10 @@ printed in the terminal. TeX errors are also shown in place on the slide.
 
 Use `$…$` or `\(…\)` inline and `$$…$$` or `\[…\]` for display math. Write a
 literal dollar sign as `\$`. Math inside `<pre>`/`<code>` is left alone.
+
+To copy an equation's LaTeX during the presentation, **click it** (a "LaTeX
+copied" note confirms). Copying selected text with Ctrl/Cmd+C also works: any
+equations in the selection are copied as `$…$` / `$$…$$` source.
 
 Custom macros go in `vite.config.js`:
 

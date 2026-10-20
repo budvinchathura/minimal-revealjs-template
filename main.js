@@ -15,6 +15,7 @@ import './styles/custom.css';
 // (see build/slides-plugin.js).
 import slidesHtml from 'virtual:slides';
 import tocIcon from './assets/toc-logo.svg';
+import { enableLatexCopy } from './copy-latex.js';
 
 const slidesElement = document.querySelector('.reveal .slides');
 slidesElement.innerHTML = slidesHtml;
@@ -38,6 +39,7 @@ await deck.initialize();
 
 slidesElement.addEventListener('click', onTocLinkClick);
 addTocButton();
+enableLatexCopy();
 
 function goToSlide(section) {
   const { h, v } = deck.getIndices(section);

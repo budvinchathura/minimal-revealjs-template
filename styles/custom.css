@@ -78,6 +78,34 @@ body {
   margin-left: 3.5em;
 }
 
+/* Click an equation to copy its LaTeX (copy-latex.js). */
+.reveal .slides mjx-container[data-latex] {
+  cursor: copy;
+}
+
+.reveal .slides a mjx-container[data-latex] {
+  cursor: pointer;
+}
+
+.latex-copy-toast {
+  position: fixed;
+  z-index: 100;
+  transform: translate(-50%, calc(-100% - 12px));
+  padding: 0.35em 0.75em;
+  border-radius: 6px;
+  background: var(--slide-text-color);
+  color: white;
+  font-family: var(--r-main-font);
+  font-size: 15px;
+  pointer-events: none;
+  animation: latex-copy-toast 1.2s ease-out forwards;
+}
+
+@keyframes latex-copy-toast {
+  0%, 70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 /* Footer listing the references cited on a slide (build/citations.js). */
 .reveal .slides section.has-slide-citations {
   height: 100%;

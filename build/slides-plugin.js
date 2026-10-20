@@ -26,8 +26,6 @@ const RESOLVED_STYLES_ID = `\0${STYLES_ID}`;
  * @param {'short' | 'full' | 'none'} [userOptions.slideCitations='short'] Footer listing the
  *   references cited on each slide; override per slide with <section data-citations="...">.
  * @param {object} [userOptions.tex] Extra MathJax TeX options, e.g. { macros: { R: '\\mathbb{R}' } }.
- * @param {boolean} [userOptions.speech] Generate spoken descriptions of math for screen readers.
- *   Defaults to on for `vite build` and off in dev, where it would slow down every save.
  */
 export default function slides(userOptions = {}) {
   let options;
@@ -51,7 +49,6 @@ export default function slides(userOptions = {}) {
         includeUncited: userOptions.includeUncited ?? false,
         slideCitations: userOptions.slideCitations ?? 'short',
         tex: userOptions.tex ?? {},
-        speech: userOptions.speech ?? isBuild,
         warn: (message) => logger.warn(`[slides] ${message}`, { timestamp: true }),
       };
     },
