@@ -6,8 +6,11 @@ highlighting.
 
 `npm run build` produces **one self-contained `index.html`**: all JavaScript,
 CSS and fonts are inlined and nothing is fetched from a CDN. Only your media
-files (figures, videos, …) sit next to it, so you can copy the `dist/` folder
-to any machine and present offline, even straight from `file://`.
+files (figures, videos, …) sit next to it, along with a
+`THIRD-PARTY-LICENSES.md` notice for the bundled libraries, so you can copy the
+`dist/` folder to any machine and present offline, even straight from `file://`.
+
+**Live demo:** https://budvinchathura.github.io/minimal-revealjs-template/
 
 ## Quick start
 
@@ -151,3 +154,35 @@ Supported attributes, as in Reveal's highlight plugin:
 
 HTML inside a code block is shown literally, but `<` and `&` still need to be
 written as `&lt;` and `&amp;` where they could be read as markup.
+
+## Citing this template
+
+If this template is useful in your work, please cite it. GitHub's "Cite this
+repository" button (from [`CITATION.cff`](CITATION.cff)) gives APA and BibTeX,
+or use:
+
+```bibtex
+@software{edippuliarachchi_minimal_revealjs_template,
+  author  = {Edippuliarachchi, Budvin},
+  title   = {Minimal Reveal.js Research Template},
+  year    = {2026},
+  url     = {https://github.com/budvinchathura/minimal-revealjs-template},
+  license = {MIT}
+}
+```
+
+## Credits
+
+Built on [reveal.js](https://revealjs.com/) (including its *simple* theme),
+[MathJax](https://www.mathjax.org/), [highlight.js](https://highlightjs.org/)
+(*a11y-dark* theme by Eric Bailey), [citation-js](https://citation.js.org/),
+[linkedom](https://github.com/WebReflection/linkedom), [Vite](https://vite.dev/)
+with [vite-plugin-singlefile](https://github.com/richardtallent/vite-plugin-singlefile),
+and fonts from [Fontsource](https://fontsource.org/) (Lato, News Cycle,
+JetBrains Mono; SIL Open Font License).
+
+The references in `refs.bib` are fictional examples.
+
+## License
+
+[MIT](LICENSE) &copy; Budvin Edippuliarachchi

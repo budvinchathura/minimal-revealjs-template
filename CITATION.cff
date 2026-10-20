@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this template, please cite it as below."
+type: software
+title: "Minimal Reveal.js Research Template"
+abstract: >-
+  A Reveal.js template for research talks that builds to a single
+  self-contained HTML file, with build-time LaTeX math (MathJax), BibTeX
+  citations, a chapter-aware table of contents and syntax highlighting.
+authors:
+  - family-names: Edippuliarachchi
+    given-names: Budvin
+repository-code: "https://github.com/budvinchathura/minimal-revealjs-template"
+url: "https://budvinchathura.github.io/minimal-revealjs-template/"
+license: MIT
+keywords:
+  - reveal.js
+  - presentation
+  - template
+  - mathjax
+  - latex
+  - academic

@@ -18,4 +18,9 @@ export default defineConfig({
     // Files in public/ (figures, videos, ...) are copied next to it as-is.
     viteSingleFile(),
   ],
+  build: {
+    // Inlining strips the bundled libraries' license comments; list them in a
+    // file next to index.html instead.
+    license: { fileName: 'THIRD-PARTY-LICENSES.md' },
+  },
 });
